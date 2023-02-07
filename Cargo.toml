@@ -1,0 +1,20 @@
+[package]
+name = "bevy_astronomical"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.9.1"
+fastrand = "1.8.0"
+bevy_cube_sphere = { git = "https://github.com/bevy-interstellar/bevy_cube_sphere", tag = "v0.2.5" }
+bevy_wgsl_noise = { git = "https://github.com/bevy-interstellar/bevy_wgsl_noise", tag = "v0.1.0" }
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
