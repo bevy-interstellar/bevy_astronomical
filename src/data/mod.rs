@@ -1,8 +1,8 @@
 // /// anything physically exists
 // pub mod object;
 
-// /// the movement of orbit
-// pub mod orbit;
+/// the movement of orbit
+pub mod orbit;
 
 /// unit conversion tool
 pub mod conversion;
