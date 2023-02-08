@@ -2,5 +2,8 @@
     "cSpell.words": [
         "apoapsis",
         "periapsis"
-    ]
+    ],
+    "Codegeex.DisabledFor": {
+        "rust": true
+    }
 }
