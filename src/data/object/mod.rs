@@ -8,12 +8,6 @@ pub trait AstronomicalObject: PseudorandomGenerable {
     fn radius() -> f32; // unit in solar radius
 }
 
-/// an object only exists in L3 view
-pub trait L3Object: AstronomicalObject {}
-
-/// an object only exists in L2 view
-pub trait L2Object: AstronomicalObject {}
-
 /// an object that is luminous
 pub trait LuminousObject: AstronomicalObject {
     fn luminosity() -> f32;
