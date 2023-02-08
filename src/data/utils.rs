@@ -19,6 +19,29 @@ pub mod length {
     conversion!(au, ly, 63241.077);
 }
 
+pub mod random {
+    use rand::distributions::Uniform;
+    use rand::Rng;
+    use rand_distr::Normal;
+
+    /// generated a random number based on lower bound `lb`, mean `mu`, upper
+    /// bound `ub`. it follows normal distribution, and ensure no value will
+    /// be outside of lb or ub.
+    pub fn range_normal<R: Rng + ?Sized>(lb: f32, mu: f32, ub: f32, rng: &mut R) -> f32 {
+        let distance = f32::min(ub - mu, mu - lb);
+        let sigma = distance / 3.0;
+        let normal = Normal::from_mean_cv(mu, (sigma / mu).abs()).unwrap();
+        let value = rng.sample(normal);
+        f32::min(ub, f32::max(lb, value))
+    }
+
+    pub fn range_uniform<R: Rng + ?Sized>(lb: f32, ub: f32, rng: &mut R) -> f32 {
+        let uniform = Uniform::new_inclusive(lb, ub);
+        let value = rng.sample(uniform);
+        return value;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::length::*;
