@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::prelude::{Bundle, Component};
 use rand_xoshiro::rand_core::SeedableRng;
 
 use crate::data::utils::random;
@@ -136,7 +136,6 @@ mod tests {
 
     #[test]
     fn white_dwarf_test() {
-        println!("testtest");
         let x = WhiteDwarfBundle::new(1.0, 6034.03403403);
 
         assert_approx_eq!(f32, x.radius(), 0.01, ulps = 2);

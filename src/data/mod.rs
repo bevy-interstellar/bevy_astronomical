@@ -1,3 +1,5 @@
+pub mod component;
+
 /// anything physically exists
 pub mod object;
 
